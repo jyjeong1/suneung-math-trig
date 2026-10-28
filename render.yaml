@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: suneung-math-trig
+    runtime: python
+    rootDir: triangle
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: CLAUDE_API_KEY
+        sync: false
+      - key: DAILY_LIMIT
+        value: "30"

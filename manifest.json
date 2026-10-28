@@ -1,0 +1,14 @@
+{
+  "name": "Prof.AI 수능수학: 삼각함수",
+  "short_name": "삼각함수",
+  "description": "AI가 만드는 나만의 수능 수학 삼각함수 트레이너",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#0f0f1a",
+  "orientation": "portrait",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
