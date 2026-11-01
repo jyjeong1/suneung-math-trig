@@ -341,8 +341,8 @@ body {
 }
 .choices { display: flex; flex-direction: column; gap: 10px; }
 .choice-btn {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 12px;
   padding: 14px 16px;
   font-size: 14px;
@@ -356,9 +356,9 @@ body {
   gap: 10px;
 }
 .choice-btn:active { transform: scale(0.98); }
-.choice-btn.selected { background: rgba(249,115,22,0.15); border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); color: #fff; }
-.choice-btn.correct { background: rgba(34,197,94,0.15); border-color: var(--correct); box-shadow: 0 0 0 2px var(--correct); color: var(--correct); }
-.choice-btn.wrong { background: rgba(239,68,68,0.15); border-color: var(--wrong); box-shadow: 0 0 0 2px var(--wrong); color: var(--wrong); animation: wrongShake 0.3s; }
+.choice-btn.selected { background: rgba(249,115,22,0.3); border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); color: var(--primary); font-weight: 700; }
+.choice-btn.correct { background: rgba(34,197,94,0.25); border-color: var(--correct); box-shadow: 0 0 0 2px var(--correct); color: var(--correct); }
+.choice-btn.wrong { background: rgba(239,68,68,0.25); border-color: var(--wrong); box-shadow: 0 0 0 2px var(--wrong); color: var(--wrong); animation: wrongShake 0.3s; }
 .choice-btn .num {
   min-width: 24px;
   height: 24px;
