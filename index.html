@@ -498,6 +498,19 @@ body {
 </head>
 <body>
 
+<!-- 로그인 필수 오버레이 -->
+<div id="loginOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0f1a;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <div style="text-align:center;max-width:360px;padding:40px;">
+    <div style="font-size:48px;margin-bottom:20px;">🔐</div>
+    <h2 style="color:#ffd700;font-size:22px;margin-bottom:12px;">로그인이 필요합니다</h2>
+    <p style="color:#b0b8d0;font-size:14px;line-height:1.6;margin-bottom:24px;">Prof.AI 수학 앱을 사용하려면<br>Google 계정으로 로그인해주세요.</p>
+    <button onclick="handleLogin()" style="background:linear-gradient(135deg,#4285f4,#1a73e8);color:#fff;border:none;padding:14px 32px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:10px;margin:0 auto;">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px;"> Google 로그인
+    </button>
+    <p style="color:#666;font-size:11px;margin-top:16px;">무료 회원: 하루 10문제 · 프리미엄: 하루 20문제</p>
+  </div>
+</div>
+
 <!-- 헤더 -->
 <div class="header">
   <div><h1 style="margin:0;">Prof.AI 수능수학: 삼각함수</h1><div style="font-size:9px;color:#fb923c;font-weight:500;margin-top:3px;letter-spacing:-0.1px;">AI 수능 10개년 기출 분석 108문항 · 삼각함수 전문<br>RPI 공학박사 · 삼성전자/GE 연구원 · 29년 교수 감수</div></div>
@@ -974,6 +987,7 @@ function initFirebase() {
     if (user) {
       document.getElementById('loginBtn').style.display = 'none';
       document.getElementById('userBadge').style.display = 'block';
+      document.getElementById('loginOverlay').style.display = 'none';
       const name = user.displayName || user.email;
       document.getElementById('userBadge').textContent = '👤 ' + (name.length > 6 ? name.slice(0,6) + '..' : name);
       loadUserLocalData();
@@ -986,6 +1000,7 @@ function initFirebase() {
     } else {
       document.getElementById('loginBtn').style.display = 'block';
       document.getElementById('userBadge').style.display = 'none';
+      document.getElementById('loginOverlay').style.display = 'flex';
     }
   });
 }
