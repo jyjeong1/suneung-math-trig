@@ -341,8 +341,8 @@ body {
 }
 .choices { display: flex; flex-direction: column; gap: 10px; }
 .choice-btn {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px;
   padding: 14px 16px;
   font-size: 14px;
@@ -356,9 +356,9 @@ body {
   gap: 10px;
 }
 .choice-btn:active { transform: scale(0.98); }
-.choice-btn.selected { background: rgba(249,115,22,0.3); border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); color: var(--primary); font-weight: 700; }
-.choice-btn.correct { background: rgba(34,197,94,0.25); border-color: var(--correct); box-shadow: 0 0 0 2px var(--correct); color: var(--correct); }
-.choice-btn.wrong { background: rgba(239,68,68,0.25); border-color: var(--wrong); box-shadow: 0 0 0 2px var(--wrong); color: var(--wrong); animation: wrongShake 0.3s; }
+.choice-btn.selected { background: rgba(249,115,22,0.15); border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); color: #fff; }
+.choice-btn.correct { background: rgba(34,197,94,0.15); border-color: var(--correct); box-shadow: 0 0 0 2px var(--correct); color: var(--correct); }
+.choice-btn.wrong { background: rgba(239,68,68,0.15); border-color: var(--wrong); box-shadow: 0 0 0 2px var(--wrong); color: var(--wrong); animation: wrongShake 0.3s; }
 .choice-btn .num {
   min-width: 24px;
   height: 24px;
@@ -504,6 +504,7 @@ body {
   <div style="display:flex; align-items:center; gap:10px;">
     <div class="streak" id="streakDisplay">🔥 0일 연속</div>
     <div style="font-size:11px; color:#ffd700; opacity:0.9;" id="badgeSummary"></div>
+    <a href="https://suneung-english-ai.onrender.com/hub.html" style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#a0a0cc;font-size:11px;padding:4px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;" title="Prof.AI 허브">🏠 허브</a>
     <button id="loginBtn" onclick="handleLogin()" style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#ffd700; font-size:12px; padding:4px 10px; border-radius:8px; cursor:pointer; display:none;">Google 로그인</button>
     <span id="userBadge" style="font-size:12px; color:#ffd700; display:none; cursor:pointer;" onclick="handleLogout()"></span>
   </div>
@@ -647,64 +648,21 @@ body {
 
 <div class="modal-overlay" id="paymentModal">
   <div class="modal" style="max-height:85vh; overflow-y:auto; width:95%; max-width:420px;">
-    <h3 style="margin-bottom:16px;">💎 프리미엄 멤버십</h3>
+    <h3 style="margin-bottom:16px;">💎 Prof.AI 통합 구독</h3>
     <div style="background:linear-gradient(135deg,#003366,#0055aa); color:#fff; border-radius:14px; padding:20px; margin-bottom:16px;">
-      <div style="font-size:28px; font-weight:900; margin-bottom:4px;">월 오백오십원</div>
-      <p style="font-size:13px; opacity:0.9;">RPI 박사 · 삼성전자/GE · 29년 교수 감수</p>
+      <div style="font-size:28px; font-weight:900; margin-bottom:4px;">월 ₩5,500</div>
+      <p style="font-size:13px; opacity:0.9;">영어 무제한 + 수학 2과목 무제한</p>
     </div>
-    <div style="font-size:13px; line-height:2.2; margin-bottom:16px;">
-      <div style="font-weight:700; margin-bottom:4px;">무료 회원</div>
-      <div>📚 단원 학습 — 하루 <strong>10문제</strong></div>
-      <div>🟢 Lv.1~2 — 무료</div>
-      <div>🟠 Lv.3~4 — 💎 프리미엄</div>
-      <div>🎯 수능 대비 — 💎 프리미엄</div>
-      <div style="font-weight:700; margin:10px 0 4px; color:#0055d4;">💎 프리미엄 회원</div>
-      <div>📚 단원 학습 — 하루 <strong>20문제</strong></div>
-      <div>🎯 수능 대비 — 하루 <strong>20문제</strong></div>
-      <div>🟢🔵🟠🔴 전 레벨 사용권</div>
+    <div style="font-size:13px; line-height:2; margin-bottom:16px;">
+      <div>✅ <strong>수능영어</strong> AI 문제 무제한</div>
+      <div>✅ <strong>수능수학 2과목</strong> 매월 선택 (8개 중 택2)</div>
+      <div>✅ 전 레벨 · AI 해설 무제한</div>
+      <div style="margin-top:8px; color:var(--sub);">현재: 무료 회원 (수학 전체 하루 5문제)</div>
     </div>
-    <p style="text-align:center;font-size:12px;color:var(--sub);margin-bottom:10px;">추후 이용 가능</p>
-    <button class="submit-btn" style="font-size:13px; padding:10px; background:#ccc; color:#666; cursor:default;" disabled>💳 월 오백오십원 결제 (준비 중)</button>
+    <a href="https://suneung-english-ai.onrender.com/hub.html" class="submit-btn primary" style="display:block;text-align:center;font-size:15px;padding:14px;text-decoration:none;background:linear-gradient(135deg,#0055d4,#a855f7);color:#fff;border-radius:12px;font-weight:700;">🏠 Prof.AI 허브에서 구독하기</a>
     <button class="submit-btn" style="background:var(--border); color:var(--text); margin-top:8px;" onclick="document.getElementById('paymentModal').classList.remove('active')">닫기</button>
   </div>
 </div>
-
-<!-- ═══ 랭킹 페이지 ═══ -->
-<div class="page" id="page-rank">
-  <h2 style="font-size:20px; font-weight:700; margin-bottom:16px;">🏆 리더보드</h2>
-  <div style="display:flex; gap:8px; margin-bottom:16px;">
-    <button class="rank-tab active" id="rankTabScore" onclick="switchRankTab('score')">★ 가중치 점수</button>
-    <button class="rank-tab" id="rankTabStreak" onclick="switchRankTab('streak')">🔥 연속</button>
-    <button class="rank-tab" id="rankTabTotal" onclick="switchRankTab('total')">📝 문제수</button>
-    <button class="rank-tab" id="rankTabAccuracy" onclick="switchRankTab('accuracy')">🎯 정답률</button>
-  </div>
-  <div id="rankMyPosition" style="margin-bottom:12px;"></div>
-  <div id="rankList"></div>
-  <div id="rankLogin" style="display:none; text-align:center; padding:40px 20px;">
-    <p style="font-size:14px; color:var(--sub); margin-bottom:8px;">로그인하면 랭킹에 참여할 수 있습니다</p>
-    <p style="font-size:12px; color:var(--sub); margin-bottom:16px;">* Google 계정으로만 로그인 가능합니다</p>
-    <button class="submit-btn primary" style="width:auto;" onclick="handleLogin()">Google 계정으로 로그인</button>
-  </div>
-</div>
-
-<!-- ═══ 통계 페이지 ═══ -->
-<div class="page" id="page-stats">
-  <h2 style="font-size:20px; font-weight:700; margin-bottom:16px;">내 성적</h2>
-  <div class="stat-row">
-    <div class="stat-card">
-      <h3>총 문제</h3>
-      <div class="big-num" id="statTotal">0</div>
-    </div>
-    <div class="stat-card">
-      <h3>정답률</h3>
-      <div class="big-num" id="statAccuracy">0%</div>
-    </div>
-    <div class="stat-card">
-      <h3>종합 점수</h3>
-      <div class="big-num" id="statScore">0</div>
-      <div id="lpRpDetail" style="font-size:12px;color:var(--sub);margin-top:4px;">LP 0 + RP 0</div>
-    </div>
-  </div>
 
   <!-- 점수 안내 -->
   <div class="stat-card" style="margin-bottom:12px;">
@@ -1746,7 +1704,7 @@ function updateCacheStatus() {
     el.textContent = parts.join(' + ');
     el.style.color = 'var(--correct)';
   } else if (state.hasServerKey || state.apiKey) {
-    el.textContent = '⏳ 문제 준비 중...';
+    el.textContent = '⏳ 문제 허브에서 구독...';
     el.style.color = 'var(--accent)';
   } else {
     el.textContent = '';
@@ -1759,25 +1717,61 @@ function updateCacheStatus() {
 let quizQueue = [];
 
 function getTodayQuizCount() {
+  // 로컬 카운트 (앱별)
   const today = new Date().toISOString().slice(0, 10);
   const daily = state.stats.daily || {};
   return daily[today]?.total || 0;
 }
 
-const FREE_DAILY_LIMIT = 10;    // 무료: 단원학습만, 하루 10문제
+// 수학 전체 공유 일일 카운터 (Firebase)
+async function getMathDailyTotal() {
+  if (!db || !fbUser) return getTodayQuizCount();
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const doc = await db.collection('users').doc(fbUser.uid).get();
+    if (doc.exists) {
+      const d = doc.data();
+      const mathDaily = d.mathDailyUsage || {};
+      return mathDaily[today] || 0;
+    }
+  } catch(e) {}
+  return getTodayQuizCount();
+}
+
+async function incrementMathDaily() {
+  if (!db || !fbUser) return;
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const doc = await db.collection('users').doc(fbUser.uid).get();
+    let current = 0;
+    if (doc.exists) {
+      const mathDaily = doc.data().mathDailyUsage || {};
+      current = mathDaily[today] || 0;
+    }
+    await db.collection('users').doc(fbUser.uid).set({
+      mathDailyUsage: { [today]: current + 1 }
+    }, { merge: true });
+  } catch(e) {}
+}
+
+const FREE_DAILY_LIMIT = 5;    // 무료: 수학 전체 하루 5문제 (Firebase 공유)
 const PREMIUM_DAILY_LIMIT = 20; // 프리미엄: 수능대비+단원학습, 하루 20문제
 
-function checkFreeLimit() {
-  const todayCount = getTodayQuizCount();
+async function checkFreeLimit() {
+  const todayCount = state.isPremium ? getTodayQuizCount() : await getMathDailyTotal();
   const limit = state.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
   if (todayCount >= limit) {
     if (state.isPremium) {
-      alert('오늘의 학습 한도(20문제)에 도달했습니다.\n내일 다시 도전하세요!');
+      alert('오늘의 학습 한도(20문제)에 도달했습니다.
+내일 다시 도전하세요!');
     } else {
+      alert('오늘의 무료 수학 문제(5문제)를 모두 풀었습니다.
+프리미엄 구독(월 5,500원)으로 무제한 이용하세요!');
       document.getElementById('paymentModal').classList.add('active');
     }
     return false;
   }
+  if (!state.isPremium) { await incrementMathDaily(); }
   return true;
 }
 
@@ -1788,24 +1782,24 @@ function updateFreeLimitStatus() {
   const limit = state.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
   const remain = Math.max(0, limit - todayCount);
   if (state.isPremium) {
-    el.innerHTML = '<div style="background:linear-gradient(135deg,#fff8e1,#ffecb3);border:1.5px solid #ffd54f;border-radius:14px;padding:14px 16px;">'
+    el.innerHTML = '<div style="background:linear-gradient(135deg,rgba(255,215,0,0.1),rgba(255,170,0,0.1));border:1.5px solid rgba(255,215,0,0.3);border-radius:14px;padding:14px 16px;">'
       + '<div style="display:flex;align-items:center;gap:10px;">'
       + '<span style="font-size:24px;">💎</span>'
-      + '<div>'
-      + '<div style="font-size:14px;font-weight:800;color:#e65100;">프리미엄 회원</div>'
-      + ''
+      + '<div><div style="font-size:14px;font-weight:800;color:#ffd700;">프리미엄 회원</div>'
+      + '<div style="font-size:12px;color:#999;">오늘 ' + remain + '/' + limit + '문제 남음</div>'
       + '</div></div></div>';
   } else {
-    el.innerHTML = '<div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1.5px solid rgba(6,214,160,0.5);border-radius:14px;padding:16px 18px;color:#fff;">'
-      + '<div style="display:flex;align-items:center;gap:12px;">'
-      + '<span style="font-size:32px;">🆓</span>'
-      + '<div>'
-      + '<div style="font-size:18px;font-weight:900;color:#00d4ff;">FREE</div>'
-      + '<div style="font-size:13px;color:#999;line-height:1.7;margin-top:4px;">매일 <b style="color:#fff;">10문제</b> · 기간: <b style="color:#fff;">무제한</b> · 로그인만으로 가능</div>'
-      + ''
-      + '</div></div></div>';
+    el.innerHTML = '<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px 16px;">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;">'
+      + '<div style="display:flex;align-items:center;gap:10px;">'
+      + '<span style="font-size:20px;">📝</span>'
+      + '<div><div style="font-size:13px;font-weight:600;color:#ccc;">수학 전체 ' + remain + '/' + limit + '문제 남음</div>'
+      + '<div style="font-size:11px;color:#888;">무료 · 수학 전과목 하루 5문제</div></div></div>'
+      + '<a href="https://suneung-english-ai.onrender.com/hub.html" style="font-size:11px;color:#a855f7;text-decoration:none;padding:6px 12px;border:1px solid rgba(168,85,247,0.3);border-radius:8px;">💎 구독</a>'
+      + '</div></div>';
   }
 }
+
 
 function requireLogin() {
   if (!fbUser) { alert('Google 로그인 후 문제를 풀 수 있습니다.'); handleLogin(); return true; }
@@ -2355,7 +2349,7 @@ function renderQuestion() {
   const diffLabel = lvInfo.icon + ' ' + lvInfo.name;
   const diffColor = lvInfo.color;
   const qidBadge = q._qid ? ' <span style="margin-left:6px;font-size:10px;font-weight:600;color:#666;background:#f0f0f0;padding:2px 6px;border-radius:4px;">' + q._qid + '</span>' : '';
-  const reviewedMark = ' <span style="margin-left:4px;font-size:11px;font-weight:700;color:#1a8f3c;background:#e8f5e9;padding:2px 6px;border-radius:4px;">감수완료</span>';
+  const reviewedMark = q._reviewed ? ' <span style="margin-left:4px;font-size:11px;font-weight:700;color:#1a8f3c;background:#e8f5e9;padding:2px 6px;border-radius:4px;">감수완료</span>' : '';
   document.getElementById('quizTypeBadge').innerHTML = (q.type || TYPE_NAMES[q._type]) + ' <span style="margin-left:8px;font-size:12px;font-weight:800;color:#fff;background:' + diffColor + ';padding:2px 8px;border-radius:4px;">' + diffLabel + '</span>' + qidBadge + reviewedMark;
   document.getElementById('quizInstruction').textContent = TYPE_INSTRUCTIONS[q._type] || '다음 문제를 풀어보세요.';
 
@@ -3222,10 +3216,9 @@ function updateMembershipUI() {
           <div>✅ 🎯 수능 대비 모드 사용권</div>
           <div>✅ 하루 <strong>20문제</strong>로 확장</div>
           <div>✅ 🟠 Lv.3 수능급 + 🔴 Lv.4 동경대급 사용권</div>
-          <div style="margin-top:6px; font-size:12px; color:var(--sub);">월 오백오십원 · 언제든 해지 가능</div>
+          <div style="margin-top:6px; font-size:12px; color:var(--sub);">월 5,500원 · 허브에서 구독</div>
         </div>
-        <p style="font-size:11px;color:var(--sub);margin-bottom:6px;">추후 이용 가능</p>
-        <button class="submit-btn" style="font-size:12px; padding:8px; background:#ccc; color:#666; cursor:default;" disabled>💎 프리미엄 가입 — 월 오백오십원 (준비 중)</button>
+        <button class="submit-btn" style="font-size:12px; padding:8px; background:#ccc; color:#666; cursor:default;" onclick="window.location.href='https://suneung-english-ai.onrender.com/hub.html'">💎 Prof.AI 허브에서 구독하기</button>
       </div>`;
   }
 }
@@ -3238,8 +3231,8 @@ function updatePremiumBanner() {
     + '<div style="display:flex;align-items:center;gap:12px;">'
     + '<span style="font-size:24px;">💎</span>'
     + '<div style="flex:1;">'
-    + '<div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:2px;">프리미엄 · 월 오백오십원</div>'
-    + '<div style="font-size:11px;color:var(--sub);line-height:1.5;">수능 대비 + 하루 20문제 + 전 레벨 · <span style="color:#f97316;">추후 이용 가능</span></div>'
+    + '<div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:2px;">프리미엄 · 월 5,500원 (허브에서 구독)</div>'
+    + '<div style="font-size:11px;color:var(--sub);line-height:1.5;">수능 대비 + 하루 20문제 + 전 레벨 · <span style="color:#f97316;">허브에서 구독</span></div>'
     + '</div>'
     + '</div></div>';
 }
@@ -3276,11 +3269,31 @@ async function requestPayment() {
 
 async function checkPremiumStatus() {
   if (!db || !fbUser) return;
+  const THIS_SUBJECT = 'trig'; // 이 앱의 과목 ID
   try {
     const doc = await db.collection('users').doc(fbUser.uid).get();
     if (doc.exists) {
       const d = doc.data();
-      if (d.isPremium_trig) {
+      // 1. 통합 구독 확인 (신규 모델: 영어+수학2과목 월 5,500원)
+      if (d.isPremium_unified) {
+        const expiry = d.premiumExpiry_unified;
+        if (expiry && new Date(expiry) < new Date()) {
+          state.isPremium = false;
+          localStorage.removeItem(ukey('isPremium_trig'));
+        } else {
+          // 이 과목이 선택된 과목인지 확인
+          const selected = d.selectedMathSubjects || [];
+          if (selected.includes(THIS_SUBJECT)) {
+            state.isPremium = true;
+            localStorage.setItem(ukey('isPremium_trig'), 'true');
+          } else {
+            state.isPremium = false;
+            localStorage.removeItem(ukey('isPremium_trig'));
+          }
+        }
+      }
+      // 2. 기존 개별 구독 호환
+      else if (d.isPremium_trig) {
         const expiry = d.premiumExpiry_trig;
         if (expiry && new Date(expiry) < new Date()) {
           state.isPremium = false;
