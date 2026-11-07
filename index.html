@@ -953,7 +953,7 @@ async function handleLogin() {
   if (!auth) return alert('Firebase가 설정되지 않았습니다');
   try {
     const provider = new firebase.auth.GoogleAuthProvider();
-    await auth.signInWithRedirect(provider);
+    await auth.signInWithPopup(provider);
   } catch(e) {
     alert('로그인 실패: ' + e.message);
   }
@@ -1799,7 +1799,7 @@ function updateFreeLimitStatus() {
 
 
 function requireLogin() {
-  if (!fbUser) { alert('로그인이 필요합니다.'); handleLogin(); return true; }
+  if (!fbUser) { alert('오른쪽 상단의 로그인 버튼을 눌러주세요.'); return true; }
   return false;
 }
 
