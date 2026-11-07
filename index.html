@@ -505,9 +505,8 @@ body {
     <div class="streak" id="streakDisplay">🔥 0일 연속</div>
     <div style="font-size:11px; color:#ffd700; opacity:0.9;" id="badgeSummary"></div>
     <a href="https://suneung-english-ai.onrender.com/hub.html" style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#a0a0cc;font-size:11px;padding:4px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;" title="Prof.AI 허브">🏠 허브</a>
-    <!-- 로그인은 허브에서 처리 -->
-    <button id="loginBtn" style="display:none;"></button>
-    <span id="userBadge" style="font-size:12px; color:#ffd700; display:none; cursor:pointer;" onclick="window.location.href='https://suneung-english-ai.onrender.com/hub.html'"></span>
+    <button id="loginBtn" onclick="handleLogin()" style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#ffd700;font-size:11px;padding:4px 10px;border-radius:8px;cursor:pointer;display:none;">로그인</button>
+    <span id="userBadge" style="font-size:12px; color:#ffd700; display:none; cursor:pointer;" onclick="handleLogout()"></span>
   </div>
 </div>
 
@@ -945,6 +944,11 @@ function initFirebase() {
     } else {
       document.getElementById('loginBtn').style.display = 'block';
       document.getElementById('userBadge').style.display = 'none';
+      // 자동 로그인 시도 (허브에서 이미 로그인한 사용자를 위해)
+      if (!window.autoLoginAttempted) {
+        window.autoLoginAttempted = true;
+        setTimeout(() => { if (!fbUser) handleLogin(); }, 500);
+      }
     }
   });
 }
@@ -1803,7 +1807,7 @@ function updateFreeLimitStatus() {
 
 
 function requireLogin() {
-  if (!fbUser) { alert('Prof.AI 허브에서 로그인 후 이용해주세요.'); window.location.href='https://suneung-english-ai.onrender.com/hub.html'; return true; }
+  if (!fbUser) { alert('로그인이 필요합니다.'); handleLogin(); return true; }
   return false;
 }
 
@@ -3219,7 +3223,7 @@ function updateMembershipUI() {
           <div>✅ 🟠 Lv.3 수능급 + 🔴 Lv.4 동경대급 사용권</div>
           <div style="margin-top:6px; font-size:12px; color:var(--sub);">월 5,500원 · 허브에서 구독</div>
         </div>
-        <button class="submit-btn" style="font-size:12px; padding:8px; background:#ccc; color:#666; cursor:default;" onclick="window.location.href='https://suneung-english-ai.onrender.com/hub.html'">💎 Prof.AI 허브에서 구독하기</button>
+        <button class="submit-btn" style="font-size:12px; padding:8px; background:#ccc; color:#666; cursor:default;" onclick="handleLogout()">💎 Prof.AI 허브에서 구독하기</button>
       </div>`;
   }
 }
