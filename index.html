@@ -944,11 +944,7 @@ function initFirebase() {
     } else {
       document.getElementById('loginBtn').style.display = 'block';
       document.getElementById('userBadge').style.display = 'none';
-      // 자동 로그인 시도 (허브에서 이미 로그인한 사용자를 위해)
-      if (!window.autoLoginAttempted) {
-        window.autoLoginAttempted = true;
-        setTimeout(() => { if (!fbUser) handleLogin(); }, 500);
-      }
+
     }
   });
 }
