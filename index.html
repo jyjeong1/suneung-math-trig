@@ -958,7 +958,7 @@ function initFirebase() {
         document.getElementById('loginBtn').style.display = 'none';
         document.getElementById('userBadge').style.display = 'block';
         const nm = fbUser.displayName;
-        document.getElementById('userBadge').textContent = '\u{1F464} ' + (nm.length > 6 ? nm.slice(0,6) + '..' : nm);
+        document.getElementById('userBadge').textContent = '👤 ' + (nm.length > 6 ? nm.slice(0,6) + '..' : nm);
         loadUserLocalData();
         loadFromFirestore();
         loadSolvedFromFirestore();
