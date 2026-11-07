@@ -1808,20 +1808,20 @@ function requireLogin() {
 }
 
 // 수능 대비: 프리미엄만 가능
-function tryStartExam() {
+async function tryStartExam() {
   if (requireLogin()) return;
   if (!state.isPremium) {
     document.getElementById('paymentModal').classList.add('active');
     return;
   }
-  if (!checkFreeLimit()) return;
+  if (!(await checkFreeLimit())) return;
   startDailyRandom(5);
 }
 
 // 단원 학습: 무료 가능 (일일 제한)
-function tryStartUnit() {
+async function tryStartUnit() {
   if (requireLogin()) return;
-  if (!checkFreeLimit()) return;
+  if (!(await checkFreeLimit())) return;
   startUnitMode();
 }
 
