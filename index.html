@@ -953,11 +953,9 @@ async function handleLogin() {
   if (!auth) return alert('Firebase가 설정되지 않았습니다');
   try {
     const provider = new firebase.auth.GoogleAuthProvider();
-    await auth.signInWithPopup(provider);
+    await auth.signInWithRedirect(provider);
   } catch(e) {
-    if (e.code !== 'auth/popup-closed-by-user') {
-      alert('로그인 실패: ' + e.message);
-    }
+    alert('로그인 실패: ' + e.message);
   }
 }
 
