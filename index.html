@@ -931,25 +931,6 @@ function initFirebase() {
   auth.getRedirectResult().then(result => {
     if (result && result.user) { console.log('Redirect login success:', result.user.email); }
   }).catch(e => { console.log('Redirect result:', e.message); });
-  // 허브에서 전달받은 uid로 로그인 처리
-  const urlParams = new URLSearchParams(window.location.search);
-  const hubUid = urlParams.get('uid');
-  const hubName = urlParams.get('name');
-  const hubEmail = urlParams.get('email');
-  if (hubUid && !fbUser) {
-    fbUser = { uid: hubUid, displayName: hubName || hubEmail || '학생', email: hubEmail || '' };
-    document.getElementById('loginBtn').style.display = 'none';
-    document.getElementById('userBadge').style.display = 'block';
-    const name = fbUser.displayName;
-    document.getElementById('userBadge').textContent = '👤 ' + (name.length > 6 ? name.slice(0,6) + '..' : name);
-    loadUserLocalData();
-    loadFromFirestore();
-    loadSolvedFromFirestore();
-    checkPremiumStatus();
-    // URL에서 파라미터 제거 (깔끔하게)
-    window.history.replaceState({}, '', window.location.pathname);
-  }
-
 
   auth.onAuthStateChanged(user => {
     fbUser = user;
@@ -968,6 +949,22 @@ function initFirebase() {
     } else {
       document.getElementById('loginBtn').style.display = 'block';
       document.getElementById('userBadge').style.display = 'none';
+      // 허브에서 전달받은 uid로 로그인 처리
+      const urlParams = new URLSearchParams(window.location.search);
+      const hubUid = urlParams.get('uid');
+      const hubName = urlParams.get('name');
+      if (hubUid) {
+        fbUser = { uid: hubUid, displayName: decodeURIComponent(hubName || '학생'), email: decodeURIComponent(urlParams.get('email') || '') };
+        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('userBadge').style.display = 'block';
+        const nm = fbUser.displayName;
+        document.getElementById('userBadge').textContent = '\u{1F464} ' + (nm.length > 6 ? nm.slice(0,6) + '..' : nm);
+        loadUserLocalData();
+        loadFromFirestore();
+        loadSolvedFromFirestore();
+        checkPremiumStatus();
+        window.history.replaceState({}, '', window.location.pathname);
+      }
 
     }
   });
