@@ -2882,7 +2882,9 @@ function updateLevelProgress() {
 }
 
 function updateStatsDisplay() {
-  document.getElementById('statTotal').textContent = state.stats.total;
+  const stEl = document.getElementById('statTotal');
+  if (!stEl) return;
+  stEl.textContent = state.stats.total;
   const acc = state.stats.total > 0 ? Math.round(state.stats.correct / state.stats.total * 100) : 0;
   document.getElementById('statAccuracy').textContent = acc + '%';
   document.getElementById('statScore').textContent = getTotalScore();
