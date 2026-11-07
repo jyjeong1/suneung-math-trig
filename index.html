@@ -958,7 +958,7 @@ async function handleLogin() {
   if (!auth) return alert('Firebase가 설정되지 않았습니다');
   try {
     const provider = new firebase.auth.GoogleAuthProvider();
-    await auth.signInWithRedirect(provider);
+    await auth.signInWithPopup(provider);
   } catch(e) {
     alert('로그인 실패: ' + e.message);
   }
