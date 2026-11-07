@@ -1761,11 +1761,9 @@ async function checkFreeLimit() {
   const limit = state.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
   if (todayCount >= limit) {
     if (state.isPremium) {
-      alert('오늘의 학습 한도(20문제)에 도달했습니다.
-내일 다시 도전하세요!');
+      alert('오늘의 학습 한도(20문제)에 도달했습니다.\n내일 다시 도전하세요!');
     } else {
-      alert('오늘의 무료 수학 문제(5문제)를 모두 풀었습니다.
-프리미엄 구독(월 5,500원)으로 무제한 이용하세요!');
+      alert('오늘의 무료 수학 문제(5문제)를 모두 풀었습니다.\n프리미엄 구독(월 5,500원)으로 무제한 이용하세요!');
       document.getElementById('paymentModal').classList.add('active');
     }
     return false;
